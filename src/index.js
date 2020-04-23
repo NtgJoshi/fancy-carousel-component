@@ -1,6 +1,10 @@
 const template = document.createElement('template');
+const bootstrapUrl = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 
 template.innerHTML = `
+  <style>
+    @import ${bootstrapUrl}
+  </style>
   <style>
     .lds-dual-ring {
       display: inline-block;
@@ -31,12 +35,12 @@ template.innerHTML = `
 `;
 
 class App extends HTMLElement {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    this._shadowRoot = this.attachShadow({ mode: 'open' });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
-  }
+        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this._shadowRoot.appendChild(template.content.cloneNode(true));
+    }
 }
 
 window.customElements.define('space-loader', App);
